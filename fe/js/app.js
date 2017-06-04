@@ -111,7 +111,7 @@
             if (e.which === 13) {
                 var new_todo = $('.new-todo').val().trim();
                 if (new_todo === "") {
-                    alert("Input Your plan");
+                    alert("Input your plan.");
                 } else {
                     $.ajax({
                         type: 'POST',

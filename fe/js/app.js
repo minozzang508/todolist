@@ -28,7 +28,7 @@
 
     function getTodoList() {
     	var restURL = '';
-    	
+
     	switch(filter.getFilter()) {
 	    	case "all" :
 	    		restURL = '/all';
@@ -50,7 +50,7 @@
             success: function (response) {
                 var liClass;
                 var checkedLine;
-                
+
                 getCountActive();
                 for (var i = 0; response.length; i++) {
                     if (response[i].completed === 1) {
@@ -95,14 +95,21 @@
             event.preventDefault();
             if (this.id === "all") {
                 filter.setFilter("all");
+                $('a').removeClass('selected');
+                $(this).attr('class', 'selected');
+
                 getTodoList();
             } else if (this.id === "completed") {
                 filter.setFilter("completed");
+                $('a').removeClass('selected');
+                $(this).attr('class', 'selected');
                 getTodoList();
             } else {
                 filter.setFilter("active");
+                $('a').removeClass('selected');
+                $(this).attr('class', 'selected');
                 getTodoList();
-            }            
+            }
         });
     }//filterMode() end
 
@@ -147,7 +154,7 @@
             } else {
                 completed = 0;
             }
-            
+
             $.ajax({
                 type: 'PUT',
                 url: '/api/todos/' + li_Id,
@@ -157,7 +164,7 @@
                     completed: completed
                 }),
                 success: function () {
-                    getTodoList();                    
+                    getTodoList();
                 },
                 error: function (request, status, error) {
                     alert("code:" + request.status + "\n" + "message:" +
@@ -172,7 +179,7 @@
         $(document).on("click", ".destroy", function (event) {
             var li_tag = $(this).parent().parent();
             var li_Id = li_tag.attr('id');
-            
+
             $.ajax({
                 type: 'DELETE',
                 url: 'api/todos/' + li_Id,

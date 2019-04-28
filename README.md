@@ -97,3 +97,19 @@
 - [PR보내고 다시 PR보낼때 확인](https://www.youtube.com/watch?v=CbLNbCUsh5c)
 - [confilct날 때 해결하는 방법](https://www.youtube.com/watch?v=U3RmwYc5eGQ)
 
+
+reactive를 품은 kafka 메시지
+http://t0a.st/lXHi
+
+Apache kafka 
+- message broker project
+-distributed streaming platform
+producer -> publish -> stream -> subscribe -> consumer
+- 보통은 Spring Kafka
+- weakness : 아이템 하나 처리하기까지 다음 처리 x 따라서 대용량 처리 x
+
+-> reactor kafka등장
+
+ex 사례)
+alarm -> produce -> event -> consume -> consumer
+
